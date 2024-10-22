@@ -1,0 +1,320 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Estilos para o vídeo de abertura */
+.video-opening-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    overflow: hidden; /* Evita que o conteúdo transborde */
+}
+
+.opening-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta o vídeo para cobrir a área sem distorção */
+}
+
+/* Regras de mídia para dispositivos móveis */
+@media (max-width: 768px) {
+    .opening-video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: contain; /* Mantém o vídeo visível sem cortes */
+    }
+}
+
+@media (max-width: 480px) {
+    .opening-video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: contain; /* Garante que o vídeo não ultrapasse os limites da tela */
+    }
+}
+
+
+.skip-btn-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#skipButton {
+    padding: 10px 20px;
+    background-color: #fff;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#skipButton:hover {
+    background-color: #ccc;
+}
+
+/* Conteúdo principal da página - inativo no início */
+#mainContent {
+    display: none;
+}
+
+header {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Estilização para o container da logo */
+.logo-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(0, 0, 0);
+}
+
+/* Animação da logo */
+.logo-header {
+    width: 200px; /* Ajuste o tamanho da logo */
+    animation: zoomInFade 3s ease-in-out infinite; /* Chama a animação */
+    opacity: 0; /* Começa com opacidade zero */
+}
+
+/* Definindo a animação zoomInFade */
+@keyframes zoomInFade {
+    0% {
+        transform: scale(0.5); /* Zoom inicial pequeno */
+        opacity: 0; /* Invisível no início */
+    }
+    50% {
+        transform: scale(1.1); /* Zoom intermediário */
+        opacity: 1; /* Visível */
+    }
+    100% {
+        transform: scale(1); /* Volta ao tamanho normal */
+        opacity: 1; /* Visível */
+    }
+}
+
+
+.logo-header {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.scroll-indicator {
+    margin-top: 20px; /* Espaço entre a logo e a seta */
+    display: flex;
+    justify-content: center;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid white; /* Cor da seta */
+    animation: pulse 1.5s infinite; /* Animação de pulsar */
+}
+
+/* Animação de pulsar */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.video-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #00ffff; /* Azul Neon */
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+.overlay p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ffd700; /* Dourado */
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: #00dc51;
+    color: #004a14;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra ao redor do botão */
+    border: none;
+    animation: pulse 1.5s infinite;
+}
+
+/* Animação de pulsar */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.7; /* Reduzindo a opacidade no meio da animação */
+    }
+}
+
+/* Centralizar o botão na página */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh; /* Ajusta a altura para ocupar toda a tela */
+    background-color: black;
+}
+
+.whatsapp-btn:hover {
+    background-color: #00b746; /* Cor mais escura ao passar o mouse */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Sombra mais intensa ao passar o mouse */
+}
+
+.whatsapp-btn:active {
+    background-color: #009e3b; /* Cor mais escura ao clicar */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); /* Sombra reduzida ao clicar */
+}
+
+.whatsapp-btn svg {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+}
+
+
+
+.about {
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.893);
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ffd700; /* Dourado */
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.classes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.class-card {
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00ffff; /* Sombra azul neon */
+}
+
+.class-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.class-card h3 {
+    font-size: 1.8rem;
+    margin-top: 10px;
+    color: #00ffff; /* Azul Neon */
+}
+
+.class-card p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-top: 10px;
+}
+
+.contact {
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ffd700; /* Dourado */
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #ffd700; /* Dourado */
+}
