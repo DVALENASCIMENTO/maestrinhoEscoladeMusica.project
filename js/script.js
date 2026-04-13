@@ -69,3 +69,16 @@ sections.forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(50px)';
 });
+
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+    reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 100) {
+            el.classList.add('active');
+        }
+    });
+});
